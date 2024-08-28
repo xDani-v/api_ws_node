@@ -8,8 +8,8 @@ const flowBienvenida = addKeyword('hola').addAnswer('Hola, ¿en qué puedo ayuda
 const main = async () => {
 
     const provider = createProvider(BaileysProvider);
-
-    provider.initHttpServer(3002);
+    const PORT: any = process.env.PORT || 3002;
+    provider.initHttpServer(PORT);
 
     provider.http?.server.post('/send-message', handleCtx(async (bot, req, res) => {
         const body = req.body;
